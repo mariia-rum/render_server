@@ -33,20 +33,19 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session configuration
 app.use(session({
   secret: process.env.SESSION_SECRET || 'your-secret-key',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: false,  
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
+    secure: process.env.NODE_ENV === 'production', 
     httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
-    sameSite: 'lax',
-    path: '/'
+    maxAge: 24 * 60 * 60 * 1000, 
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax' 
   },
   name: 'sleep2earn.sid'
 }));
+
 
 // Initialize Passport
 app.use(passport.initialize());
