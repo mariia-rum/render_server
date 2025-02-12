@@ -1,6 +1,6 @@
-const passport = require('passport');
-const OAuth2Strategy = require('passport-oauth2');
-const fetchProfile = require('./utils/fetchProfile');
+import passport from 'passport';
+import OAuth2Strategy from 'passport-oauth2';
+import { fetchProfile } from './utils/fetchProfile.js'; 
 
 const whoopOAuthConfig = {
     authorizationURL: `${process.env.WHOOP_API_HOSTNAME}/oauth/oauth2/auth`,
@@ -30,3 +30,5 @@ passport.use('withWhoop', whoopStrategy);
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
+
+export default passport;

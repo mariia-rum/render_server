@@ -1,5 +1,6 @@
-const express = require('express');
-const passport = require('passport');
+import express from 'express';
+import passport from 'passport';
+
 const router = express.Router();
 
 router.get('/whoop', passport.authenticate('withWhoop'));
@@ -18,4 +19,4 @@ router.get('/profile', (req, res) => {
     res.json(req.user);
 });
 
-module.exports = router;
+export default router;

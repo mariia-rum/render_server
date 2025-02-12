@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import fetch from 'node-fetch';
+
 const router = express.Router();
-const fetch = require('node-fetch');
 
 router.get('/sleep-data', async (req, res) => {
     if (!req.isAuthenticated()) {
@@ -21,4 +22,4 @@ router.get('/sleep-data', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-const fetchProfile = async (accessToken, done) => {
+export const fetchProfile = async (accessToken, done) => {
     try {
         const profileResponse = await fetch(
             `${process.env.WHOOP_API_HOSTNAME}/developer/v1/user/profile/basic`,
@@ -14,5 +14,3 @@ const fetchProfile = async (accessToken, done) => {
         done(error);
     }
 };
-
-module.exports = fetchProfile;
